@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import CounterClassComponent from "./CounterClassComponent";
+import CounterFunctionalComponent from "./CounterFunctionalComponent";
 
-function App() {
+export default function App() {
+  let var1 = 0;
+  const var2 = "Test valiable";
+  const [count, setCount] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Test react js: {var1}</h1>
+      <h1>Count: {count}</h1>
+      <button
+        onClick={function () {
+          var1 = var1 + 1;
+          console.log(var1);
+          setCount(count + 1);
+        }}
+      >
+        Click Me!!
+      </button>
+      <CounterClassComponent />
+      <CounterFunctionalComponent />
     </div>
   );
 }
-
-export default App;
